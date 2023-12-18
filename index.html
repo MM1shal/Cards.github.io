@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?v=0.2">
+    <link href="https://rawcdn.githack.com/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet"
+        type="text/css" />
+
+<body>
+    <div class="business-card">
+        <div class="wave-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#fff" fill-opacity="1"
+                    d="M0,128L40,122.7C80,117,160,107,240,128C320,149,400,203,480,208C560,213,640,171,720,165.3C800,160,880,192,960,192C1040,192,1120,160,1200,160C1280,160,1360,192,1400,208L1440,224L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <div class="user-info">
+            <p class="name">Nawaf Alsaleh</p>
+            <p class="job-title">Head Of IT</p>
+            <p class="company">IT Department</p>
+            <p class="company-name">Al Halaba Entertainment Co.</p>
+        </div>
+        <div class="contact-info">
+            <p><a href="mailto:nawaf@example.com"><i class="fa fa-envelope"></i>nawaf@example.com</a></p>
+            <p><a href="tel:966507498843"><i class="fa fa-phone  fa-flip-horizontal"></i>+966507498843</a></p>
+            <p><a href="https://www.linkedin.com/in/nawafalsaleh" target="_blank"><i
+                        class="fab fa-twitter"></i>@User</a></p>
+            <p><a href="https://www.linkedin.com/in/nawafalsaleh" target="_blank"><i class="fab fa-linkedin"></i>Nawaf
+                    Alsaleh</a></p>
+            <p><a href="https://api.whatsapp.com/send?phone=966507498843" target="_blank"><i
+                        class="fab fa-whatsapp"></i>+966507498843</a></p>
+        </div>
+    </div>
+    <button class="button" onclick="downloadVCard()">Save to Contact</button>
+    
+    <script>
+        function downloadVCard() {
+            var vCard = `BEGIN:VCARD
+        VERSION:3.0
+        N:Alsaleh;Nawaf
+        ORG:Al Halaba Entertainment Co.
+        TITLE:Head Of IT
+        TEL;TYPE=WORK,VOICE:+966507498843
+        EMAIL;TYPE=PREF,INTERNET:nawaf@example.com
+        END:VCARD`;
+        
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(vCard));
+            element.setAttribute('download', 'contact.vcf');
+        
+            element.style.display = 'none';
+            document.body.appendChild(element);
+        
+            element.click();
+        
+            document.body.removeChild(element);
+        }
+        </script>
+</body>
+
+</html>
